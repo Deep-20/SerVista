@@ -57,7 +57,9 @@ export const Register = () => {
                       value={user.username}
                       onChange={handleInput}
                     />
+                  </div>
 
+                  <div>
                     <label htmlFor="email">Email</label>
                     <input
                       type="email"
@@ -69,7 +71,8 @@ export const Register = () => {
                       value={user.email}
                       onChange={handleInput}
                     />
-
+                  </div>
+                  <div>
                     <label htmlFor="phone"> Phone</label>
                     <input
                       type="number"
@@ -81,7 +84,8 @@ export const Register = () => {
                       value={user.phone}
                       onChange={handleInput}
                     />
-
+                  </div>
+                  <div>
                     <label htmlFor="password"> Password</label>
                     <input
                       type="password"
