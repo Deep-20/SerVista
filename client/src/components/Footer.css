@@ -1,3 +1,7 @@
+.section-footer {
+  padding-top: 4.8rem;
+}
+
 .footer {
   background-color: var(--btn-color);
   width: 100%;
