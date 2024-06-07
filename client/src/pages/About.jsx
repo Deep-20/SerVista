@@ -1,3 +1,5 @@
+import { Analytics } from "../components/Analytics";
+
 export const About = () => {
   return (
     <>
@@ -51,6 +53,8 @@ export const About = () => {
           </div>
         </div>
       </div>
+
+      <Analytics />
     </>
   );
 };

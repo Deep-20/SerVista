@@ -36,7 +36,9 @@ export const Login = () => {
                 />
               </div>
               <div className="login-form">
-                <div className="main-header mb3"> Login Form </div>
+                <div className="main-heading mb3">
+                  <h1>Login Form</h1>{" "}
+                </div>
                 <br />
 
                 <form onSubmit={handleSubmit}>

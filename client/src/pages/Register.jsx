@@ -31,7 +31,7 @@ export const Register = () => {
         <main>
           <div className="section-registration">
             <div className="container grid grid-two-cols">
-              <div className="registration-image">
+              <div className="reg-image">
                 <img
                   src="/images/register.png"
                   alt="a person trying to fill registration form"
@@ -41,7 +41,9 @@ export const Register = () => {
               </div>
 
               <div className="registration-form">
-                <div className="main-header mb-3"> Registration Form</div>
+                <div className="main-heading mb-3">
+                  <h1> Registration Form </h1>
+                </div>
                 <br />
 
                 <form onSubmit={handleSubmit}>
@@ -50,7 +52,7 @@ export const Register = () => {
                     <input
                       type="text"
                       name="username"
-                      placeholder="username"
+                      placeholder="Username"
                       id="username"
                       required
                       autoComplete="off"
@@ -77,7 +79,7 @@ export const Register = () => {
                     <input
                       type="number"
                       name="phone"
-                      placeholder="phone"
+                      placeholder="Phone"
                       id="phone"
                       required
                       autoComplete="off"
@@ -90,7 +92,7 @@ export const Register = () => {
                     <input
                       type="password"
                       name="password"
-                      placeholder="password"
+                      placeholder="Password"
                       id="password"
                       required
                       autoComplete="off"
