@@ -1,12 +1,17 @@
 import { Analytics } from "../components/Analytics";
+import { useAuth } from "../store/auth";
 
 export const About = () => {
+  const { user } = useAuth();
+
   return (
     <>
       <div className="about-main">
         <div className="container grid grid-two-cols">
           <div className="about-content">
-            <p> Welcome to The Tech Elevators </p>
+            <p> Welcome to our website {user ? user.username : ""} </p>
+            {/* <p> Welcome to The Tech Elevators </p> */}
+
             <h1> Why Choose Us?</h1>
             <p>
               Expertise: Our team consists of experienced IT professionals who
