@@ -10,7 +10,6 @@ export const About = () => {
         <div className="container grid grid-two-cols">
           <div className="about-content">
             <p> Welcome to our website {user ? user.username : ""} </p>
-            {/* <p> Welcome to The Tech Elevators </p> */}
 
             <h1> Why Choose Us?</h1>
             <p>

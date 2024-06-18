@@ -69,6 +69,12 @@ li {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /*Adjust the gap as needed */
+}
+
 .grid-four-cols {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -362,6 +368,42 @@ a.active {
   }
 }
 /***** End Registration *****/
+
+/***** Services Page *****/
+
+.card {
+  padding: 2rem;
+  margin: 0.5rem;
+  border: 1px solid var(--btn-color); /* Add a border to each card */
+  border-radius: 8px; /* Optional: add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+.card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-header {
+  & p {
+    font-size: 1.5rem;
+  }
+}
+
+.card-details {
+  & h2 {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  & p {
+    font-size: 1.5rem;
+  }
+}
+
+/***** End Services *****/
 
 /** -----------------------
 ** media query section css
