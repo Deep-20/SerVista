@@ -20,7 +20,7 @@ const register = async (req, res) => {
     const UserExist = await User.findOne({ email: email });
 
     if (UserExist) {
-      return res.status(400).json({ msg: "User Already Exists!!" });
+      return res.status(400).json({ message: "User Already Exists!!" });
     }
 
     // const saltRound = 10;
@@ -54,7 +54,7 @@ const login = async (req, res) => {
     const userExist = await User.findOne({ email });
 
     if (!userExist) {
-      return res.status(400).json({ message: "Invalid Credential!!" });
+      return res.status(400).json({ message: "User doesn't exist!!" });
     }
 
     const user = await userExist.comparePassword(password);

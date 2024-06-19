@@ -34,14 +34,14 @@ export const Login = () => {
         },
         body: JSON.stringify(user),
       });
+      const res_data = await response.json();
 
       if (response.ok) {
-        const res_data = await response.json();
         storeTokenInLS(res_data.token);
         setUser({ email: "", password: "" });
         navigate("/");
       } else {
-        alert("Invalid Credential");
+        alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
         console.log("Invalid Credential");
       }
 

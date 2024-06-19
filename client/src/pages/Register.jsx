@@ -40,14 +40,16 @@ export const Register = () => {
         body: JSON.stringify(user),
       });
 
+      const res_data = await response.json();
+      console.log("Res", res_data);
+
       if (response.ok) {
-        const res_data = await response.json();
-        console.log("Res", res_data);
         storeTokenInLS(res_data.token);
         setUser({ username: "", email: "", phone: "", password: "" });
         navigate("/login");
+      } else {
+        alert(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
-      console.log(response);
     } catch (error) {
       console.log("Register error", error);
     }
