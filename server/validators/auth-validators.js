@@ -24,7 +24,7 @@ const signupSchema = loginSchema.extend({
     .string({ required_error: "Phone is required" })
     .trim()
     .min(10, { message: "Phone must be at least 10 characters long" })
-    .max(255, { message: "Phone must be lesser than 255 characters" }),
+    .max(10, { message: "Phone must be lesser than 10 characters" }),
 });
 
 module.exports = { signupSchema, loginSchema };
