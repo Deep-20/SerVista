@@ -15,7 +15,7 @@ router
 
 router
   .route("/users/update/:id")
-  .patch(authMiddleware, adminMiddleware, adminController.updateUserbyId);
+  .patch(authMiddleware, adminMiddleware, adminController.updateUserById);
 
 router
   .route("/users/delete/:id")
