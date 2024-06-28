@@ -49,6 +49,26 @@ const getUserById = async (req, res) => {
 };
 
 // * ---------------------
+// Update single User Logic
+// * ---------------------
+
+const updateUserById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedUserData = req.body;
+
+    const updatedData = await User.updateOne(
+      { _id: id },
+      { $set: updatedUserData }
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// * ---------------------
 // deleteUserById Logic
 // * ---------------------
 
@@ -63,4 +83,10 @@ const deleteUserById = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, getAllConatcts, deleteUserById, getUserById };
+module.exports = {
+  getAllUsers,
+  getAllConatcts,
+  deleteUserById,
+  getUserById,
+  updateUserById,
+};
