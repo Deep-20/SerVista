@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 export const EditUser = () => {
   const { id } = useParams();
@@ -41,28 +42,32 @@ export const EditUser = () => {
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
 
-  // const handleSubmit = async (e) => {
-  //     e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //     try {
-  //       const response = await fetch("http://localhost:5000/api/form/contact", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(contact),
-  //       });
-
-  //       if (response.ok) {
-  //         setContact(defaultContactFormData);
-  //         console.log(response.json());
-  //         toast.success("Message Sent Successfully!!");
-  //       }
-  //     } catch (error) {
-  //       toast.error("Failed to send Message!!");
-  //       console.log(error);
-  //     }
-  //   };
+    try {
+      console.log("JSON stringify: ", user);
+      const response = await fetch(
+        `http://localhost:5000/api/admin/users/update/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: authorizationToken,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
+      const data = await response.json();
+      console.log("Response from update user page: ", data);
+      if (response.ok) {
+        toast.success("User Updated Successfully!!");
+      }
+    } catch (error) {
+      toast.error("Failed to Update User!!");
+      console.log(error);
+    }
+  };
 
   return (
     <section>
@@ -72,7 +77,7 @@ export const EditUser = () => {
             <h1>Update User Data</h1>
           </div>
 
-          <form className="form-container">
+          <form className="form-container" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="username">Username</label>
               <input

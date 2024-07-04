@@ -56,7 +56,7 @@ const updateUserById = async (req, res, next) => {
   try {
     const id = req.params.id;
     const updatedUserData = req.body;
-
+    console.log("User data in user update: ", updatedUserData);
     const updatedData = await User.updateOne(
       { _id: id },
       { $set: updatedUserData }
