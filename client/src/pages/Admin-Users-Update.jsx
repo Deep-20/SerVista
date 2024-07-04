@@ -4,7 +4,7 @@ import { useAuth } from "../store/auth";
 
 export const EditUser = () => {
   const { id } = useParams();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({ username: "", email: "", phone: "" });
   const { authorizationToken } = useAuth();
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,21 +30,17 @@ export const EditUser = () => {
     };
 
     fetchUser();
-  }, [id]);
+  }, [id, authorizationToken]);
 
   useEffect(() => {
     console.log("User data from update page: ", user);
   }, [user]);
 
-  //   const handleInput = (e) => {
-  //     const name = e.target.name;
-  //     const value = e.target.value;
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => ({ ...prevUser, [name]: value }));
+  };
 
-  //     setUserData({
-  //       ...userData,
-  //       [name]: value,
-  //     });
-  //   };
   // const handleSubmit = async (e) => {
   //     e.preventDefault();
 
@@ -67,51 +63,56 @@ export const EditUser = () => {
   //       console.log(error);
   //     }
   //   };
+
   return (
     <section>
-      <div className="user-form">
-        <div className="main-heading">
-          <h1>Update User Data</h1>
-        </div>
+      <div className="container">
+        <div className="user-form">
+          <div className="main-heading">
+            <h1>Update User Data</h1>
+          </div>
 
-        <form>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              required
-              autoComplete="off"
-              value={user.username}
-              //   onChange={handleInput}
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              required
-              autoComplete="off"
-              value={user.email}
-              //   onChange={handleInput}
-            />
-          </div>
-          <div>
-            <label htmlFor="phone">Mobile</label>
-            <input
-              type="text"
-              name="phone"
-              required
-              autoComplete="off"
-              value={user.phone}
-              //   onChange={handleInput}
-            />
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+          <form className="form-container">
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                required
+                autoComplete="off"
+                value={user.username}
+                onChange={handleInput}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                autoComplete="off"
+                value={user.email}
+                onChange={handleInput}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="phone">Mobile</label>
+              <input
+                type="text"
+                name="phone"
+                required
+                autoComplete="off"
+                value={user.phone}
+                onChange={handleInput}
+              />
+            </div>
+            <div className="form-group">
+              <button type="submit" className="btn btn-submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   );

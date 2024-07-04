@@ -369,7 +369,8 @@ a.active {
 }
 
 .registration-form,
-.login-form {
+.login-form,
+.user-form {
   & label {
     display: block;
     margin: 2.4rem 0 0.8rem 0;
@@ -385,6 +386,7 @@ a.active {
     margin-top: 3.2rem;
   }
 }
+
 /***** End Registration *****/
 
 /***** Services Page *****/
@@ -529,6 +531,10 @@ body tr {
 }
 
 /***** End Admin Panel *****/
+
+/***** Admin User Update Page *****/
+
+/***** End User Update Page *****/
 
 /** -----------------------
 ** media query section css
